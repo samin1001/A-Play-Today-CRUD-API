@@ -106,7 +106,7 @@ function showDetails(play) {
   rightSection.append(detailRowDate);
 
   const timeHeader = document.createElement("p");
-
+  timeHeader.textContent = `Start at:`;
   const time = document.createElement("p");
   time.className = "modal-details";
   time.innerHTML = `<strong>Start at: </strong>${play.date_time_played.slice(

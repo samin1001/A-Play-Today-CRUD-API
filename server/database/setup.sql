@@ -14,9 +14,7 @@ CREATE TABLE theatre_plays(
 
 
 INSERT INTO theatre_plays(play_name, price, date_time_played, duration, cover_photo, actor_list, synopsis)
-VALUES  ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO',true),
-    ('Salim1704', '$2y$10$kPwQ5gxsZU3m6K8qptJLA.N0yPT9olUWsKTTZdIElTXkTvwDN1Fly', true),
-    ('Msamin000', '$2y$10$oPHQ4euAqhl6GpmjQ2To1eQXxAnn4upjLT4t9P0sZbRdo2AoEf2B2', false);
+VALUES  
 
     ('Romeo and Juliet', 2500, '2023-06-29 09:30:00+00:00', 120, 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Romeo_%26_Juliet_%283640665883%29.jpg', 'Tom Hiddleston (Romeo), Emma Watson (Juliet), Ian McKellen (Friar Laurence), Dev Patel (Mercutio), Meryl Streep (Nurse), Idris Elba (Tybalt), Liam Neeson (Capulet), Cate Blanchett (Lady Capulet)', 'A timeless love story by William Shakespeare set in Verona. Two young lovers, Romeo Montague and Juliet Capulet, find themselves caught in the crossfire of their feuding families. Despite their love''s purity, their secretive romance tragically spirals into a sequence of events leading to heartbreaking sacrifice.'),
     ('Hamlet', 3050, '2023-06-30 14:45:00+00:00', 150, 'https://d3s3zh7icgjwgd.cloudfront.net/AcuCustom/Sitename/DAM/233/3_Standard.-Hamlet.-George-Fouracres-as-Hamlet-front-Polly-Frame-a.jpg', 'Benedict Cumberbatch (Hamlet), Gary Oldman (Claudius), Nicole Kidman (Gertrude), Bill Nighy (Polonius), Saoirse Ronan (Ophelia), John Boyega (Laertes), Chadwick Boseman (Horatio), Patrick Stewart (Ghost of Hamlet''s Father)', 'This Shakespearean tragedy follows Hamlet, the prince of Denmark, tormented by his father''s ghost''s revelation that he was murdered by his own brother, Claudius. It''s a profound exploration of revenge, madness, death, and the human condition, highlighting Hamlet''s philosophical existential crisis amid his quest for justice.'),
@@ -34,4 +32,6 @@ VALUES  ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO
 
 INSERT INTO users(username, pass_word, isAdmin)
 VALUES
-   
+   ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO',true),
+    ('Salim1704', '$2y$10$kPwQ5gxsZU3m6K8qptJLA.N0yPT9olUWsKTTZdIElTXkTvwDN1Fly', true),
+    ('Msamin000', '$2y$10$oPHQ4euAqhl6GpmjQ2To1eQXxAnn4upjLT4t9P0sZbRdo2AoEf2B2', false);
