@@ -31,7 +31,7 @@ nav {
 }
 
 nav * {
-  margin: 3rem;
+  margin-inline: 3rem;
 }
 
 nav button {
@@ -52,4 +52,19 @@ main {
 .page-title {
   margin: 80px 0px;
   font-size: 4rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
 }
