@@ -26,6 +26,14 @@ class Play{
         const query = 'DELETE FROM theatre_plays WHERE play_id = $1'
         await db.query(query,[id])
     }
+
+    static async updatePlay(id,play){
+        const {play_name, price, date_time_played, duration, cover_photo} = play
+        const query = 'UPDATE theatre_plays SET play_name = $1, price = $2, date_time_played = $3, duration = $4, cover_photo = $5 WHERE play_id = $6 RETURNING *'
+        const values = [play_name, price, date_time_played, duration, cover_photo, id]
+        const {rows} = await db.query(query, values)
+        return rows[0]
+    }
 }
 
 module.exports = Play

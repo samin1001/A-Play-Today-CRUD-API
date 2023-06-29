@@ -18,7 +18,7 @@ class PlayController{
             if(play){
                 res.status(200).json(play)
             }else{
-                res.status(404).json({error: `Country not found`})
+                res.status(404).json({error: `Play not found`})
             }
         } catch (error) {
             res.status(500).json({error:`Oops something went wrong - ${error}`})
@@ -42,6 +42,21 @@ class PlayController{
             res.status(204).end()
         } catch (error) {
             res.status(500).json({Error:`Error code - ${error}`})
+        }
+    }
+
+    static async updatePlay(req,res){
+        const {id} = req.params
+        const newPlay = req.body
+        try {
+            const play = await Play.updatePlay(id,newPlay)
+            if(play){
+                res.status(200).json(play)
+            }else{
+                res.status(404).json({error: `Play not found`})
+            }
+        } catch (error) {
+            res.status(500).json({error:`Oops something went wrong - ${error}`})
         }
     }
 }
