@@ -74,10 +74,18 @@ main {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-.modal-left {
+.modal-detail-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  font-size: 1.5rem;
+}
+.detail-header {
+  font-style: bold;
+}
+/* .modal-left {
 }
 .modal-right {
-}
+} */
 .modal-img-container {
   width: 100%;
   overflow: hidden;

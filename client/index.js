@@ -83,14 +83,30 @@ function showDetails(play) {
   const summary = document.createElement("p");
   summary.textContent = `This is the summary`;
   leftSection.append(summary);
+  //   create  detail row for styling
+  const detailRowDate = document.createElement("div");
+  detailRowDate.className = "modal-detail-row";
+  const detailRowTime = document.createElement("div");
+  detailRowTime.className = "modal-detail-row";
+  const detailRowActor = document.createElement("div");
+  detailRowActor.className = "modal-detail-row";
+  const detailRowButtonSection = document.createElement("div");
+
   //  append the details
   const date = document.createElement("p");
-  date.className = "modal-details";
-  date.innerHTML = `<strong>Performance Date:</strong> ${play.date_time_played.slice(
-    0,
-    10
-  )}`;
-  rightSection.append(date);
+  date.className = "";
+  date.textContent = ` ${play.date_time_played.slice(0, 10)}`;
+
+  const dateHeader = document.createElement("p");
+  dateHeader.className = "detail-header";
+  dateHeader.textContent = "Performance Date:";
+
+  detailRowDate.append(dateHeader);
+  detailRowDate.append(date);
+  rightSection.append(detailRowDate);
+
+  const timeHeader = document.createElement("p");
+
   const time = document.createElement("p");
   time.className = "modal-details";
   time.innerHTML = `<strong>Start at: </strong>${play.date_time_played.slice(
