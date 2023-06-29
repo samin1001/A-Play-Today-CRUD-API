@@ -160,6 +160,11 @@ main {
   color: lightgrey;
   font-size: 0.8rem;
 }
+.remove-button {
+  background-color: var(--danger-color);
+  padding: 15px;
+  margin: 10px 0;
+}
 /* Login */
 .login-title {
   text-align: center;

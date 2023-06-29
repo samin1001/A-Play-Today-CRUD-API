@@ -52,13 +52,15 @@ plays.forEach((play) => {
 
   //   create card onClick show detail listener
 
-  card.addEventListener("click", () => showDetails(play));
+  card.addEventListener("click", (e) => showDetails(e, play));
 
   //   append the card onto container
   container.append(card);
+  createAdminElement(card, play);
 });
 
-function showDetails(play) {
+function showDetails(e, play) {
+  console.log(e.currentTarget);
   const outerModal = document.createElement("div");
   outerModal.className = "outer-modal";
   const innerModal = document.createElement("div");
@@ -159,4 +161,21 @@ function showDetails(play) {
   cancelButton.addEventListener("click", () => outerModal.remove());
   detailRowButtonSection.append(cancelButton);
   rightSection.append(detailRowButtonSection);
+}
+function createAdminElement(card, play) {
+  const removeButton = document.createElement("button");
+  removeButton.className = "remove-button";
+  removeButton.textContent = "Remove Play";
+  removeButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const res = await fetch(`http://localhost:3000/plays/${play.play_id}`, {
+      method: "DELETE",
+    });
+    if (res.status === 204) {
+      alert("Plays deleted!");
+      e.target.closest(".card").remove();
+    }
+  });
+  card.append(removeButton);
 }
