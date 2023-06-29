@@ -23,7 +23,7 @@ VALUES
     ('Macbeth', 2875, '2023-07-03 21:15:00+00:00', 130, 'https://www.indiewire.com/wp-content/uploads/2015/05/macbeth.jpg?w=685&h=478&crop=1', 'Daniel Day-Lewis (Macbeth), Kate Winslet (Lady Macbeth), Chiwetel Ejiofor (Banquo), Tom Hardy (Macduff), Anthony Hopkins (King Duncan), Tilda Swinton (First Witch), Helena Bonham Carter (Second Witch), Frances McDormand (Third Witch)','Another of Shakespeare''s tragedies, Macbeth depicts the dark journey of a noble Scottish general who, driven by prophecy and his wife''s manipulation, murders King Duncan to seize the throne. His reign, however, descends into guilt-ridden tyranny, paranoia, and madness, emphasizing themes of ambition, power, and moral corruption.' );
 
 
-    CREATE TABLE users(
+CREATE TABLE users(
     user_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
     pass_word VARCHAR(100) NOT NULL,
@@ -32,6 +32,6 @@ VALUES
 
 INSERT INTO users(username, pass_word, isAdmin)
 VALUES
-   ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO',true),
+    ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO',true),
     ('Salim1704', '$2y$10$kPwQ5gxsZU3m6K8qptJLA.N0yPT9olUWsKTTZdIElTXkTvwDN1Fly', true),
     ('Msamin000', '$2y$10$oPHQ4euAqhl6GpmjQ2To1eQXxAnn4upjLT4t9P0sZbRdo2AoEf2B2', false);
