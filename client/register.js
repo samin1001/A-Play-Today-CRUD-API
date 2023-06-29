@@ -17,8 +17,6 @@ submitButton.addEventListener("click", async (e) => {
         pass_word: password,
       }),
     });
-    const data = await res.json();
-    console.log(res);
     if (res.status === 201) {
       alert("Register succesfully");
       window.location.replace("/client/login.html");

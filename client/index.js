@@ -58,9 +58,6 @@ plays.forEach((play) => {
   container.append(card);
 });
 
-// outerModal.className = "outer-modal";
-
-document.body.append(outerModal);
 function showDetails(play) {
   const outerModal = document.createElement("div");
   outerModal.className = "outer-modal";

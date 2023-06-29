@@ -21,8 +21,22 @@
     <main>
       <h1 class="login-title">Log In</h1>
       <form action="GET" class="form">
-        <input type="text" class="form-input" placeholder="Enter username" />
-        <input type="text" class="form-input" placeholder="Enter password" />
+        <label for="username">UserName</label>
+        <input
+          type="text"
+          class="form-input"
+          name="username"
+          id="username"
+          placeholder="Enter username"
+        />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-input"
+          name="password"
+          id="password"
+          placeholder="Enter password"
+        />
         <button type="submit" class="submit-button">Login</button>
         <a href="#">Forget Password</a>
         <a href="./register.html">Create your account</a>
