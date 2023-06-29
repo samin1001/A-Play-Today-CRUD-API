@@ -24,6 +24,16 @@ class PlayController{
             res.status(500).json({error:`Oops something went wrong - ${error}`})
         }
     }
+
+    static async createPlay(req,res){
+        const play = req.body
+        try {
+            const newPlay = await Play.createPlay(play)
+            res.status(201).json(newPlay)
+        } catch (error) {
+            res.status(500).json({Error:`Error - ${error}`})
+        }
+    }
 }
 
 module.exports = PlayController
