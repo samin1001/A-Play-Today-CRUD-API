@@ -6,8 +6,16 @@ const plays = await data.json();
 
 // create card for each play
 plays.forEach((play) => {
-  const { play_id, play_name, price, date_time_played, duration, cover_photo } =
-    play;
+  const {
+    play_id,
+    play_name,
+    price,
+    date_time_played,
+    actor_list,
+    duration,
+    cover_photo,
+    sypnosis,
+  } = play;
   const card = document.createElement("div");
   card.className = "card";
   // create the img container
@@ -50,15 +58,16 @@ plays.forEach((play) => {
   container.append(card);
 });
 
-const outerModal = document.createElement("div");
 // outerModal.className = "outer-modal";
-outerModal.classList = [`outer-modal hidden`];
-const innerModal = document.createElement("div");
-innerModal.className = "inner-modal";
-outerModal.append(innerModal);
+
 document.body.append(outerModal);
 function showDetails(play) {
-  outerModal.classList.remove("hidden");
+  const outerModal = document.createElement("div");
+  outerModal.className = "outer-modal";
+  const innerModal = document.createElement("div");
+  innerModal.className = "inner-modal";
+  outerModal.append(innerModal);
+  document.body.append(outerModal);
   //   create two sections for innerModal
   const leftSection = document.createElement("div");
   leftSection.className = "modal-left";
@@ -81,37 +90,76 @@ function showDetails(play) {
   leftSection.append(playName);
   //   append the summary
   const summary = document.createElement("p");
-  summary.textContent = `This is the summary`;
+
+  summary.textContent = play.synopsis;
   leftSection.append(summary);
   //   create  detail row for styling
   const detailRowDate = document.createElement("div");
   detailRowDate.className = "modal-detail-row";
   const detailRowTime = document.createElement("div");
   detailRowTime.className = "modal-detail-row";
-  const detailRowActor = document.createElement("div");
-  detailRowActor.className = "modal-detail-row";
+  const detailRowDuration = document.createElement("div");
+  detailRowDuration.className = "modal-detail-row";
+  const detailRowPerformer = document.createElement("div");
+  detailRowPerformer.className = "modal-detail-row";
   const detailRowButtonSection = document.createElement("div");
+  detailRowButtonSection.className = "modal-detail-row button-section";
 
   //  append the details
   const date = document.createElement("p");
-  date.className = "";
+  date.className = "modal-details";
   date.textContent = ` ${play.date_time_played.slice(0, 10)}`;
 
   const dateHeader = document.createElement("p");
   dateHeader.className = "detail-header";
-  dateHeader.textContent = "Performance Date:";
+  dateHeader.textContent = "Performance Date :";
 
   detailRowDate.append(dateHeader);
   detailRowDate.append(date);
   rightSection.append(detailRowDate);
 
   const timeHeader = document.createElement("p");
-  timeHeader.textContent = `Start at:`;
+  timeHeader.className = "detail-header";
+  timeHeader.textContent = `Start at :`;
+  detailRowTime.append(timeHeader);
+
   const time = document.createElement("p");
   time.className = "modal-details";
-  time.innerHTML = `<strong>Start at: </strong>${play.date_time_played.slice(
-    11,
-    16
-  )}`;
-  rightSection.append(time);
+
+  time.textContent = `${play.date_time_played.slice(11, 16)}`;
+  detailRowTime.append(time);
+  rightSection.append(detailRowTime);
+
+  const durationHeader = document.createElement("p");
+  durationHeader.className = "detail-header";
+  durationHeader.textContent = `Duration :`;
+  detailRowDuration.append(durationHeader);
+
+  const duration = document.createElement("p");
+  duration.className = "modal-details";
+  duration.textContent = `${play.duration} minutes`;
+  detailRowDuration.append(duration);
+  rightSection.append(detailRowDuration);
+  const performerHeader = document.createElement("p");
+  performerHeader.textContent = "Performers :";
+  detailRowPerformer.append(performerHeader);
+
+  const performer = document.createElement("p");
+  performer.className = "performer-list";
+  performer.textContent = play.actor_list;
+  detailRowPerformer.append(performer);
+  rightSection.append(detailRowPerformer);
+
+  //   add buy ticket and cancel button
+
+  const buyButton = document.createElement("button");
+  buyButton.className = "buy-button";
+  buyButton.textContent = "Buy Ticket";
+  detailRowButtonSection.append(buyButton);
+  const cancelButton = document.createElement("button");
+  cancelButton.className = "cancel-button";
+  cancelButton.textContent = "Cancel";
+  cancelButton.addEventListener("click", () => outerModal.remove());
+  detailRowButtonSection.append(cancelButton);
+  rightSection.append(detailRowButtonSection);
 }
