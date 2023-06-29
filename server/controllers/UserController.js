@@ -16,7 +16,20 @@ class UserController {
             
         }
     }
-}    
+    static async login(req, res) {
+        const { username, password } = req.body;
+        try{
+            const user = await User.findByUsername(username, password)
+            if (user.message === 'Login successful') {
+                res.status(200).json({ message: user.message });
+        }else {
+            res.status(400).json({ message: user.message });
+          }
+        }catch (error) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+}
 
 module.exports = UserController;
 
