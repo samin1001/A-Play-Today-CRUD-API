@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS theatre_plays;
-
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE theatre_plays(
     play_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -18,3 +18,16 @@ VALUES
     ('The Importance of Being Earnest', 2000, '2023-07-01 18:20:00+00:00', 135, 'https://upload.wikimedia.org/wikipedia/commons/c/c0/The_Importance_of_Being_Earnest_%2815424263443%29.jpg'),
     ('A Midsummer Night''s Dream', 2200, '2023-07-02 10:00:00+00:00', 140, 'https://ichef.bbci.co.uk/images/ic/1200xn/p0dtpyrj.jpg'),
     ('Macbeth', 2875, '2023-07-03 21:15:00+00:00', 130, 'https://www.indiewire.com/wp-content/uploads/2015/05/macbeth.jpg?w=685&h=478&crop=1');
+
+    CREATE TABLE users(
+    user_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    pass_word VARCHAR(100) NOT NULL,
+    isAdmin BOOLEAN DEFAULT false
+);
+
+INSERT INTO users(username, pass_word, isAdmin)
+VALUES
+    ('Achan15','$2y$10$097V6YXFoRutj1O42zr1XO2gRXOowekCFpzDewuCvQn8KRrbxVAhO',true),
+    ('Salim1704', '$2y$10$kPwQ5gxsZU3m6K8qptJLA.N0yPT9olUWsKTTZdIElTXkTvwDN1Fly', true),
+    ('Msamin000', '$2y$10$oPHQ4euAqhl6GpmjQ2To1eQXxAnn4upjLT4t9P0sZbRdo2AoEf2B2', false);
