@@ -20,6 +20,7 @@ button {
   border: none;
   border-radius: 12px;
   font-size: 1rem;
+  cursor: pointer;
 }
 button:hover {
   box-shadow: 0 0 8px rgb(168, 168, 168);
@@ -48,6 +49,7 @@ main {
   width: 80%;
   margin: 0 auto;
 }
+
 .outer-modal {
   position: fixed;
   top: 0;
@@ -58,12 +60,9 @@ main {
   pointer-events: all;
   opacity: 1;
 }
-.outer-modal.hidden {
-  pointer-events: none;
-  opacity: 0;
-}
+
 .inner-modal {
-  width: 80%;
+  width: 90%;
   height: 80%;
   margin: 5% auto;
   display: grid;
@@ -71,21 +70,41 @@ main {
   gap: 60px;
 }
 .modal-details {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.modal-right {
+  display: flex;
+  flex-direction: column;
 }
 .modal-detail-row {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  font-size: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  font-size: 2rem;
 }
 .detail-header {
   font-style: bold;
 }
-/* .modal-left {
+.performer-list {
+  font-size: 1.6rem;
 }
-.modal-right {
-} */
+.button-section {
+  flex-grow: 1;
+  margin: 50px;
+}
+.buy-button,
+.cancel-button {
+  height: fit-content;
+  padding: 20px;
+}
+.buy-button {
+  background-color: var(--call-to-action);
+
+  margin: 15px;
+}
+.cancel-button {
+  background-color: var(--neutral-color);
+  margin: 15px;
+}
 .modal-img-container {
   width: 100%;
   overflow: hidden;
@@ -140,4 +159,27 @@ main {
 .date {
   color: lightgrey;
   font-size: 0.8rem;
+}
+/* Login */
+.login-title {
+  text-align: center;
+  font-size: 4rem;
+}
+.form {
+  margin: 0 auto;
+  width: 70%;
+}
+.form-input {
+  display: block;
+  font-size: 1.8rem;
+  margin: 10px auto;
+  color: black;
+  padding: 10px;
+  width: 100%;
+}
+.submit-button {
+  display: block;
+  background-color: var(--call-to-action);
+  padding: 20px;
+  margin: 10px 0;
 }
