@@ -34,6 +34,16 @@ class PlayController{
             res.status(500).json({Error:`Error - ${error}`})
         }
     }
+
+    static async deletePlay(req,res){
+        const {id} = req.params
+        try {
+            await Play.deletePlay(id)
+            res.status(204).end()
+        } catch (error) {
+            res.status(500).json({Error:`Error code - ${error}`})
+        }
+    }
 }
 
 module.exports = PlayController
