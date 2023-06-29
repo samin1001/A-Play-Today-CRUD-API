@@ -44,12 +44,58 @@ plays.forEach((play) => {
 
   //   create card onClick show detail listener
 
-  card.addEventListener("click", () => showDetails(play_id));
+  card.addEventListener("click", () => showDetails(play));
 
   //   append the card onto container
   container.append(card);
 });
 
-function showDetails(id) {
-  console.log(id);
+const outerModal = document.createElement("div");
+// outerModal.className = "outer-modal";
+outerModal.classList = [`outer-modal hidden`];
+const innerModal = document.createElement("div");
+innerModal.className = "inner-modal";
+outerModal.append(innerModal);
+document.body.append(outerModal);
+function showDetails(play) {
+  outerModal.classList.remove("hidden");
+  //   create two sections for innerModal
+  const leftSection = document.createElement("div");
+  leftSection.className = "modal-left";
+  const rightSection = document.createElement("div");
+  rightSection.className = "modal-right";
+  innerModal.append(leftSection);
+  innerModal.append(rightSection);
+  // put img container into left section
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "modal-img-container";
+  leftSection.append(imgContainer);
+  // append the img
+  const playImg = document.createElement("img");
+  playImg.src = play.cover_photo;
+  imgContainer.append(playImg);
+  //   append the name
+  const playName = document.createElement("h2");
+  playName.textContent = play.play_name;
+  playName.className = "modal-play-title";
+  leftSection.append(playName);
+  //   append the summary
+  const summary = document.createElement("p");
+  summary.textContent = `This is the summary`;
+  leftSection.append(summary);
+  //  append the details
+  const date = document.createElement("p");
+  date.className = "modal-details";
+  date.innerHTML = `<strong>Performance Date:</strong> ${play.date_time_played.slice(
+    0,
+    10
+  )}`;
+  rightSection.append(date);
+  const time = document.createElement("p");
+  time.className = "modal-details";
+  time.innerHTML = `<strong>Start at: </strong>${play.date_time_played.slice(
+    11,
+    16
+  )}`;
+  rightSection.append(time);
 }
