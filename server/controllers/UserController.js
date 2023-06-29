@@ -20,6 +20,7 @@ class UserController {
   }
   static async login(req, res) {
     const { username, password } = req.body;
+    console.log(username, password);
     try {
       const user = await User.findByUsername(username, password);
       if (user.message === "Login successful") {
