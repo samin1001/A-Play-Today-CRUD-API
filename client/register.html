@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Curtain - Register</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="register.js"></script>
+    <script src="register.js" defer></script>
   </head>
   <body>
     <nav>
@@ -21,17 +21,23 @@
     <main>
       <h1 class="login-title">Register</h1>
       <form class="form">
+        <label for="username">UserName</label>
         <input
           type="text"
           class="form-input"
-          placeholder="Create your username"
+          name="username"
+          id="username"
+          placeholder="Create username"
         />
+        <label for="password">Password</label>
         <input
           type="text"
           class="form-input"
-          placeholder="Create your password"
+          name="password"
+          id="password"
+          placeholder="Create password"
         />
-        <button type="submit" class="submit-button">Login</button>
+        <button class="submit-button" type="submit">Register</button>
 
         <a href="./login.html">I have an account</a>
       </form>
